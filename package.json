@@ -11,12 +11,13 @@
   "dependencies": {
     "@langchain/core": "^0.3.72",
     "@langchain/groq": "^0.2.3",
-    "@langchain/langgraph": "^0.4.6",
+    "@langchain/langgraph": "^0.4.7",
     "@langchain/ollama": "^0.2.3",
     "langchain": "^0.3.31",
     "next": "15.5.0",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
