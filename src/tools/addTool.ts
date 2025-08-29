@@ -7,7 +7,7 @@ const addTool = tool(
     {
         name: "add",
         schema: addInputSchema,
-        description: "Adds a and b.", 
+        description: "Adds numbers a and b. The arguments a and b must strictly be of type number.", 
     }
 )
 
