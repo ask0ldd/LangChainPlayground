@@ -2,7 +2,7 @@ import addTool from "@/tools/addTool";
 import multiplyTool from "@/tools/multiplyTool";
 import orderRetrieveTool from "@/tools/orderRetrieveTool";
 import { sentimentTool } from "@/tools/sentimentAnalyzer";
-import { HumanMessage } from "@langchain/core/messages";
+import { HumanMessage, SystemMessage } from "@langchain/core/messages";
 import { ChatGroq } from "@langchain/groq";
 import { MemorySaver } from "@langchain/langgraph";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
@@ -70,10 +70,15 @@ export default async function Langraph() {
   )
 
   const orderState = await agent.invoke(
-    { messages: [new HumanMessage(`My name is Ced Arthus, what was my last order?`)] },
-    { configurable: { thread_id: "42" } },
+    { 
+      messages: [
+        new SystemMessage("Write a 3 lines message on the state of the customer order."),
+        new HumanMessage("I'm Ced Arthus, what was my last order?")
+      ]
+    },
+    { configurable: { thread_id: "42" } }
   )
-
+  
   console.log(
     orderState.messages[orderState.messages.length - 1].content,
   )
