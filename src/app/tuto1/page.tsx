@@ -23,7 +23,9 @@ export default async function Chat() {
     new HumanMessage("hi!"),
   ];
 
-  await model.invoke(messages);
+  const response = await model.invoke(messages);
+
+  console.log(response.content)
 
   /* 
     ChatModels receive message objects as input and generate message objects as output. In addition to text content, 
